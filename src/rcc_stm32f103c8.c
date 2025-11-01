@@ -5,7 +5,7 @@ void RCC_HSE_On(void){
 }
 
 void RCC_HSE_Off(void){
-    RCC->CR |= (0 << 16);
+    RCC->CR &= ~(1 << 16);
 }
 
 void RCC_HSI_On(void){
@@ -13,14 +13,14 @@ void RCC_HSI_On(void){
 }
 
 void RCC_HSI_Off(void){
-    RCC->CR |= (1 << 0);
+    RCC->CR &= ~(1 << 0);
 }
 
 void RCC_PLL_On(void){
     RCC->CR |= (1 << 24);
 }
 void RCC_PLL_Off(void){
-    RCC->CR |= (0 << 24);
+    RCC->CR &= ~(1 << 24);
 }
 
 uint8_t RCC_HSE_Ready(void){
