@@ -1,20 +1,29 @@
 #include "gpio_stm32f103c8.h"
 #include "rcc_stm32f103c8.h"
-#include "interact_bit.h"
+#include "interact_bits.h"
 
 void main(void){
-    RCC->APB2ENR |= (3 << 3);
+    RCC->APB2ENR = 0x0;
 
-    GPIOC->CRH &= ~(0xF << 20);
-    GPIOC->CRH |= (1 << 20);
-    GPIOC->ODR |= (0 << 13);
+    //HSE ON
+    RCC->CR |= (1 << 16);
+    while (!(RCC->CR & (1 << 17)));
+
+    //HSE as PLL SRC
+    RCC->CFGR |= (1 << 16);
+
+    //PLL MUL
+    RCC->CFGR |= (7 << 18);
+
+    //PLL ON
+    RCC->CR |= (1 << 24);
+    while (!(RCC->CR & (1 << 25)));
+
+    //PLL as SYSCLK
+    RCC->CFGR |= (2 << 0);
 
 
-    GPIOB->CRH &= ~(0xF << 8);
-    GPIOB->CRH |= (1 << 8);
-    GPIOB->ODR |= (0 << 10);
-    setbit(&GPIOB->ODR, 10, 0);
-    while (1){
+    RCC->CR &= ~(1 << 0);
+    while (RCC->CR & (1 << 1));
 
-    }
 }

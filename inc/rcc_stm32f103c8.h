@@ -20,4 +20,36 @@ typedef struct{
 
 #define RCC ((volatile RCC_TypeDef*)0x40021000)
 
+
+void RCC_HSE_On(void);
+void RCC_HSE_Off(void);
+void RCC_HSI_On(void);
+void RCC_HSI_Off(void);
+void RCC_PLL_On(void);
+void RCC_PLL_Off(void);
+
+uint8_t RCC_HSE_Ready(void);
+uint8_t RCC_HSI_Ready(void);
+uint8_t RCC_PLL_Ready(void);
+
+void RCC_Select_SYSCLK_HSE(void);
+void RCC_Select_SYSCLK_HSI(void);
+void RCC_Select_SYSCLK_PLL(void);
+uint8_t RCC_Get_SYSCLK_Source(void);
+
+// void RCC_AHB_Enable(uint32_t mask);
+// void RCC_AHB_Disable(uint32_t mask);
+
+void RCC_APB2_Enable(uint32_t mask);
+void RCC_APB2_Disable(uint32_t mask);
+
+void RCC_APB1_Enable(uint32_t mask);
+void RCC_APB1_Disable(uint32_t mask);
+
+void RCC_APB2_Reset(uint32_t mask);
+void RCC_APB1_Reset(uint32_t mask);
+
+
+
+
 #endif
