@@ -7,6 +7,7 @@ extern int main(void);
 void Reset_Handler(void);
 void Default_Handler(void);
 void TIM6_IRQHandler(void);
+void USART1_IRQHandler(void);
 
 __attribute__((section(".isr_vector")))
 void (* const vector_table[])(void) = {
@@ -61,7 +62,7 @@ void (* const vector_table[])(void) = {
     Default_Handler, // IRQ34 I2C2_ER
     Default_Handler, // IRQ35 SPI1
     Default_Handler, // IRQ36 SPI2
-    Default_Handler, // IRQ37 USART1
+    USART1_IRQHandler, // IRQ37 USART1
     Default_Handler, // IRQ38 USART2
     Default_Handler, // IRQ39 USART3
     Default_Handler, // IRQ40 EXTI15_10
