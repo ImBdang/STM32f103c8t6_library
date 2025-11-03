@@ -38,7 +38,7 @@ OBJECTS	  := $(SRC_FILES:$(SRC_DIR)/%.c=$(BUILD_DIR)/%.o)
 ####################################
 #			FLAGS
 ####################################
-CFLAGS	:= -mcpu=$(MCU) -mthumb -Wall -O2 -g -ffreestanding -nostdlib -I$(INC_DIR)
+CFLAGS	:= -mcpu=$(MCU) -mthumb -Wall -O0 -g -ffreestanding -nostdlib -I$(INC_DIR)
 LDFLAGS := -T$(LINKER_DIR)/$(LD_SCRIPT) -nostdlib
  
 

@@ -16,7 +16,7 @@ typedef struct{
     volatile uint32_t RESERVED2;
     volatile uint32_t RESERVED3;
     volatile uint32_t CNT;
-    volatile uint32_t PCS;
+    volatile uint32_t PSC;
     volatile uint32_t ARR;
 } TIM67_TypeDef;
 
