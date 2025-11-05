@@ -4,3 +4,4 @@ build/
 docs/
 utils/
 old/
+src/main.c

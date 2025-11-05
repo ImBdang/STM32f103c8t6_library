@@ -8,6 +8,7 @@ void Reset_Handler(void);
 void Default_Handler(void);
 void TIM6_IRQHandler(void);
 void USART1_IRQHandler(void);
+void TIM2_IRQHandler(void);
 
 __attribute__((section(".isr_vector")))
 void (* const vector_table[])(void) = {
@@ -53,7 +54,7 @@ void (* const vector_table[])(void) = {
     Default_Handler, // IRQ25 TIM1_UP
     Default_Handler, // IRQ26 TIM1_TRG_COM
     Default_Handler, // IRQ27 TIM1_CC
-    Default_Handler, // IRQ28 TIM2
+    TIM2_IRQHandler, // IRQ28 TIM2
     Default_Handler, // IRQ29 TIM3
     Default_Handler, // IRQ30 TIM4
     Default_Handler, // IRQ31 I2C1_EV
