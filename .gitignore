@@ -4,4 +4,4 @@ build/
 docs/
 utils/
 old/
-src/main.c
+src/main*.c
